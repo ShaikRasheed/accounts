@@ -1,0 +1,94 @@
+#%RAML 1.0
+title: Accounts
+mediaType:
+  - application/json
+protocols:
+  - HTTP
+/accounts:
+  get:
+    description: "\"This the method to get the account details of customers\""
+    responses:
+      "200":
+        body:
+          items:
+            properties:
+              id:
+                example: 1
+                type: number
+                format: int
+              firstName:
+                example: Example
+                type: string
+              lastName:
+                example: Example
+                type: string
+              address:
+                example: Example
+                type: string
+              postal:
+                example: Example
+                type: string
+              country:
+                example: Example
+                type: string
+              miles:
+                example: 1
+                type: number
+                format: int
+              creationDate:
+                example: 2022-03-16T05:05:15.521Z
+                type: datetime
+                format: rfc3339
+      "400":
+        body:
+          properties:
+            message:
+              example: Error please check
+              type: string
+    queryParameters:
+      name?:
+        example: Example
+        type: string
+      country?:
+        example: india
+        type: string
+      accounttype:
+        example: "paccount or baccount "
+        type: string
+    headers:
+      ID:
+        example: 1
+        type: number
+        format: int
+  post:
+    description: "\"This the  post  method to the add the  account details of customers\""
+    body:
+      application/json:
+        properties:
+          firstName:
+            example: Example
+            type: string
+          lastName:
+            example: Example
+            type: string
+          address:
+            example: Example
+            type: string
+          postal:
+            example: Example
+            type: string
+          country:
+            example: Example
+            type: string
+          miles:
+            example: 1
+            type: number
+            format: int
+    responses:
+      "200":
+        body:
+          properties:
+            message:
+              example: "Account created (but not really)\"}. "
+              type: string
+      "400": {}
